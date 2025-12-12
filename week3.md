@@ -31,14 +31,22 @@ Evidence of Installation
 Figure 1: Verification that stress-ng, iperf3, and gcc are successfully installed on the target server via SSH.
 
 ## 4. Expected Resource Profiles
-Based on the selected applications, I anticipate the following resource usage behaviors2:ApplicationExpected CPU ProfileExpected RAM ProfileExpected I/O Profilestress-ng (CPU mode)100% Usage across all cores. High user-space time.Minimal usage.Minimal.stress-ng (VM mode)Moderate usage (kernel managing pages).High Usage (will attempt to fill 80-90% of available RAM).High Swap usage if physical RAM is exhausted.iperf3Low to Moderate (handling interrupts).Low.Minimal.gcc compilationHigh/Bursty. Variable usage as different files are compiled.Moderate (fluctuating).High. Continuous small reads/writes to disk.
+Based on the selected applications, I anticipate the following resource usage behaviors during the testing phase:
+
+| Application | Expected CPU Profile | Expected RAM Profile | Expected I/O Profile |
+| :--- | :--- | :--- | :--- |
+| **stress-ng (CPU mode)** | **100% Usage** across all cores. High user-space time. | Minimal usage. | Minimal. |
+| **stress-ng (VM mode)** | Moderate usage (kernel managing pages). | **High Usage** (targeting 80-90% of available RAM). | High Swap usage if physical RAM is exhausted. |
+| **iperf3** | Low to Moderate (interrupt handling). | Low. | Minimal. |
+| **gcc compilation** | **High/Bursty**. Variable usage as different files are compiled. | Moderate (fluctuating). | **High**. Continuous small reads/writes to disk. |
 
 ## 5. Monitoring Strategy
 To measure the impact of these applications, I will use the following "Remote Monitoring" approach:
-- Command: I will use my custom monitor-server.sh script (to be developed in Week 5) which utilizes top, vmstat, and free commands via SSH.
-- Sampling Rate: Metrics will be captured every 1 second during the active test window (approx. 60 seconds per test).
-- Data Capture:CPU: %usr (User) and %sys (System) from vmstat.
-- - Memory: available memory from free -m.
-  - Disk: wa (Wait) time from top to measure I/O blocking.
+- **Command:** I will use my custom `monitor-server.sh` script to be developed in Week 5, which utilizes top, vmstat, and free commands via SSH.
+- **Sampling Rate:** Metrics will be captured every **1 second** during the active test window approx. 60 seconds per test.
+- **Data Capture:**
+  - ***CPU:*** `%usr` (User) and %sys (System) from vmstat.
+  - ***Memory:*** `available` memory from `free -m`.
+  - ***Disk:*** `wa` (Wait) time from top to measure I/O blocking.
 
 [< Previous: Week 2](week2.md) | [Return to Home](index.md) | [Next: Week 4 >](week4.md)
