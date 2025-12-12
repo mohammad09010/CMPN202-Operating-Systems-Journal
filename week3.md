@@ -49,4 +49,5 @@ To measure the impact of these applications, I will use the following **Remote M
   - ***Memory:*** `available` memory from `free -m`.
   - ***Disk:*** `wa` (Wait) time from top to measure I/O blocking.
 
+---
 [< Previous: Week 2](week2.md) | [Return to Home](index.md) | [Next: Week 4 >](week4.md)
