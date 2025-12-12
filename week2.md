@@ -1,10 +1,10 @@
 # Week 2: Security Planning and Testing Methodology
 
 ## 1. Introduction
-Phase 2 focuses on designing a security baseline and defining a consistent methodology for performance analysis. This planning ensures that the implementation phase (Week 4) and testing phase (Week 6) are conducted systematically. The goal is to secure the headless server against common network threats while establishing an observability framework to measure the trade-offs between security overhead and system performance.
+Phase 2 focuses on designing a security baseline and defining a consistent methodology for performance analysis. This planning ensures that the implementation phase and testing phase are conducted systematically. The goal is to secure the headless server against common network threats while establishing an observability framework to measure the trade-offs between security overhead and system performance.
 
 ## 2. Threat Model
-To secure the system effectively, I have identified three specific threats relevant to a networked Linux server. [cite_start]This model prioritizes risks based on the "Dual-System" architecture where SSH is the primary attack surface.
+To secure the system effectively, I have identified three specific threats relevant to a networked Linux server. This model prioritizes risks based on the **Dual-System** architecture where **SSH** is the primary attack surface.
 
 | Threat ID | Threat Description | Potential Impact | Mitigation Strategy |
 | :--- | :--- | :--- | :--- |
