@@ -41,7 +41,7 @@ Based on the selected applications, I anticipate the following resource usage be
 | **gcc compilation** | **High/Bursty**. Variable usage as different files are compiled. | Moderate (fluctuating). | **High**. Continuous small reads/writes to disk. |
 
 ## 5. Monitoring Strategy
-To measure the impact of these applications, I will use the following "Remote Monitoring" approach:
+To measure the impact of these applications, I will use the following **Remote Monitoring** approach:
 - **Command:** I will use my custom `monitor-server.sh` script to be developed in Week 5, which utilizes `top`, `vmstat`, and `free` commands via SSH.
 - **Sampling Rate:** Metrics will be captured every **1 second** during the active test window approx. 60 seconds per test.
 - **Data Capture:**
