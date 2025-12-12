@@ -1,24 +1,24 @@
 # Week 2: Security Planning and Testing Methodology
 
 ## 1. Introduction
-Phase 2 focuses on establishing a rigorous security baseline and defining a consistent methodology for performance analysis. This planning phase ensures that the subsequent implementation (Phase 4) and testing (Phase 6) are conducted systematically rather than ad-hoc. The goal is to secure the headless server against common network threats while preparing an observability framework to measure the impact of these security controls.
+Phase 2 focuses on designing a security baseline and defining a consistent methodology for performance analysis. This planning ensures that the implementation phase (Week 4) and testing phase (Week 6) are conducted systematically. The goal is to secure the headless server against common network threats while establishing an observability framework to measure the trade-offs between security overhead and system performance.
 
 ## 2. Threat Model
-To harden the system effectively, I first identified the most probable threats to a networked Linux server. The following model prioritizes threats based on the "Dual-System" architecture.
+To secure the system effectively, I have identified three specific threats relevant to a networked Linux server. [cite_start]This model prioritizes risks based on the "Dual-System" architecture where SSH is the primary attack surface.
 
 | Threat ID | Threat Description | Potential Impact | Mitigation Strategy |
 | :--- | :--- | :--- | :--- |
-| **T1** | **SSH Brute Force Attacks** | Attackers attempt to guess passwords to gain shell access. Since SSH is the *only* entry point, this is the highest risk. | **Primary:** Disable password authentication completely (Keys only). <br> **Secondary:** Implement `Fail2Ban` to ban IPs with repeated failures. |
-| **T2** | **Privilege Escalation** | An attacker who gains low-level access attempts to acquire root permissions to compromise the entire OS. | **Primary:** Create a dedicated non-root user (`admin_user`) with restricted `sudo` access. <br> **Secondary:** Enforce AppArmor profiles to restrict service capabilities. |
-| **T3** | **Unpatched Vulnerabilities** | Exploitation of known security flaws in outdated software packages (e.g., old OpenSSL versions). | **Primary:** Configure `unattended-upgrades` for automatic security patching. <br> **Secondary:** Regular vulnerability scanning with **Lynis**. |
+| **T1** | **SSH Brute Force Attacks** | Attackers attempt to guess passwords to gain shell access. Since SSH is the only entry point, this is the highest risk. | **Primary:** Disable password authentication (Keys only). <br> **Secondary:** Configure `Fail2Ban` to block IPs with repeated failed login attempts. |
+| **T2** | **Privilege Escalation** | An attacker with low-level access attempts to acquire root permissions to compromise the entire OS. | **Primary:** Create a non-root administrative user with restricted `sudo` access. <br> **Secondary:** Enforce AppArmor profiles to restrict service capabilities. |
+| **T3** | **Unpatched Vulnerabilities** | Exploitation of known security flaws in outdated software packages (e.g., old OpenSSL versions). | **Primary:** Configure `unattended-upgrades` for automatic security patching. <br> **Secondary:** Perform regular vulnerability scanning with **Lynis**. |
 
 ## 3. Security Configuration Checklist
-Based on the threat model, I have developed the following "To-Be-Implemented" checklist. This defines the security baseline for the server.
+This checklist defines the "Security Baseline" for the server. These controls cover SSH hardening, firewalling, access control, and maintenance.
 
 ### A. Network Security & Firewall
 - [ ] **Firewall Tool:** UFW (Uncomplicated Firewall).
 - [ ] **Default Policy:** Deny all incoming traffic.
-- [ ] **Allow Rule:** Allow SSH (Port 22) **ONLY** from Workstation IP.
+- [ ] **Allow Rule:** Allow SSH (Port 22) **ONLY** from the Workstation IP.
 - [ ] **Verification:** `sudo ufw status verbose` must show "Default: deny (incoming)".
 
 ### B. SSH Hardening (`/etc/ssh/sshd_config`)
@@ -28,30 +28,31 @@ Based on the threat model, I have developed the following "To-Be-Implemented" ch
 - [ ] Restrict SSH access to specific users (`AllowUsers`).
 
 ### C. Access Control & User Management
-- [ ] Create non-root administrative user.
+- [ ] Create a non-root administrative user.
 - [ ] Lock the `root` account password (`sudo passwd -l root`).
 - [ ] **Mandatory Access Control:** Verify AppArmor is active (`aa-status`).
 
 ### D. System Maintenance
 - [ ] Install `unattended-upgrades` package.
-- [ ] Configure automatic reboot for kernel patches (if necessary).
+- [ ] Configure automatic security updates.
 
 ## 4. Performance Testing Plan
-To evaluate the "Limitations and Trade-offs" (Learning Outcome 5), I will measure how the operating system behaves under stress. All monitoring will be performed remotely from the Workstation to preserve the "Headless" constraint.
+To evaluate the "Limitations and Trade-offs" of the operating system, I will measure system behavior under different workloads. [cite_start]All monitoring will be performed remotely from the workstation to adhere to the headless constraint.
 
-### A. Monitoring Methodology
-I will use a combination of active and passive monitoring tools:
-1.  **Real-time Monitoring:** Using `htop` via SSH for immediate visual feedback.
-2.  **Automated Logging:** A custom script (`monitor-server.sh`) running on the Workstation will query the server every second to log metrics to a CSV file.
-    * *Metric 1:* CPU Usage (User vs System time).
-    * *Metric 2:* RAM Usage (Available vs Buffers/Cache).
-    * *Metric 3:* Disk I/O (Read/Write wait times).
+### A. Remote Monitoring Methodology
+Since the server has no GUI, I cannot use local task managers. [cite_start]I will use a custom script (`monitor-server.sh`) running on the Workstation that connects via SSH to collect data[cite: 69].
+
+**Key Metrics to Monitor:**
+1.  **CPU Usage:** User time vs. System time (identifying processing bottlenecks).
+2.  **Memory Usage:** Available RAM vs. Buffers/Cache (identifying memory pressure).
+3.  **Disk I/O:** Read/Write wait times (identifying storage limitations).
+4.  **Network Latency:** Round-trip time between Workstation and Server.
 
 ### B. Testing Scenarios
-I will compare system performance across three distinct states:
-1.  **Baseline State:** System idle with only SSH and background services running.
-2.  **Load State:** High stress generated by specific applications (planned for Week 3).
-3.  **Optimized State:** Performance after tuning kernel parameters or disabling unnecessary services.
+I will compare performance across three states:
+1.  **Baseline:** System idle with only SSH and background services running.
+2.  **Load:** High stress generated by specific applications (to be selected in Week 3).
+3.  **Optimized:** Performance after tuning kernel parameters or disabling unnecessary services.
 
 ---
 [< Previous: Week 1](week1.md) | [Return to Home](index.md) | [Next: Week 3 >](week3.md)
