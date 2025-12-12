@@ -20,27 +20,31 @@ This checklist defines the "Security Baseline" for the server. These controls co
 - [ ] **Default Policy:** Deny all incoming traffic.
 - [ ] **Allow Rule:** Allow SSH (Port 22) **ONLY** from the Workstation IP.
 - [ ] **Verification:** `sudo ufw status verbose` must show "Default: deny (incoming)".
+- <img width="474" height="76" alt="image" src="https://github.com/user-attachments/assets/5380f310-2c71-4f46-b2fd-6f22936c2c24" />
 
 ### B. SSH Hardening (`/etc/ssh/sshd_config`)
 - [ ] Disable Root Login (`PermitRootLogin no`).
 - [ ] Disable Password Authentication (`PasswordAuthentication no`).
 - [ ] Enforce Public Key Authentication (`PubkeyAuthentication yes`).
 - [ ] Restrict SSH access to specific users (`AllowUsers`).
+- <img width="1016" height="140" alt="image" src="https://github.com/user-attachments/assets/3bbd87dd-6c9c-4006-9340-40f15f37528e" />
 
 ### C. Access Control & User Management
 - [ ] Create a non-root administrative user.
 - [ ] Lock the `root` account password (`sudo passwd -l root`).
 - [ ] **Mandatory Access Control:** Verify AppArmor is active (`aa-status`).
+- <img width="1005" height="327" alt="image" src="https://github.com/user-attachments/assets/1910523f-5914-4a2b-814a-e537b17dbad9" />
 
 ### D. System Maintenance
 - [ ] Install `unattended-upgrades` package.
 - [ ] Configure automatic security updates.
+- <img width="1253" height="878" alt="image" src="https://github.com/user-attachments/assets/8dd09f12-edd3-45de-bce0-128c097fa6d7" />
 
 ## 4. Performance Testing Plan
-To evaluate the "Limitations and Trade-offs" of the operating system, I will measure system behavior under different workloads. [cite_start]All monitoring will be performed remotely from the workstation to adhere to the headless constraint.
+To evaluate the "Limitations and Trade-offs" of the operating system, I will measure system behavior under different workloads. All monitoring will be performed remotely from the workstation to adhere to the headless constraint.
 
 ### A. Remote Monitoring Methodology
-Since the server has no GUI, I cannot use local task managers. [cite_start]I will use a custom script (`monitor-server.sh`) running on the Workstation that connects via SSH to collect data[cite: 69].
+Since the server has no GUI, I cannot use local task managers. I will use a custom script (`monitor-server.sh`) running on the Workstation that connects via SSH to collect data.
 
 **Key Metrics to Monitor:**
 1.  **CPU Usage:** User time vs. System time (identifying processing bottlenecks).
