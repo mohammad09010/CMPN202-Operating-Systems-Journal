@@ -1,6 +1,6 @@
 # Phase 3: Application Selection for Performance Testing (Week 3)
 
-**Objective:** Must install the software you will use to `stress` the server later in Week 6. You also need to document how you installed it (SSH) and what you expect it to do to the system (CPU vs. RAM usage).
+**Objective:** Must install the software you will use to `stress` the server later in Week 6. You also need to document how you installed SSH, and what you expect it to do to the system CPU vs. RAM usage.
 
 ## 1. Introduction
 Phase 3 focuses on selecting and deploying applications that will generate specific workloads on the server. The objective is to simulate realistic stress scenarios to evaluate the operating system's resource management capabilities.
@@ -15,7 +15,7 @@ I have selected three distinct applications to target different system resources
 | **`gcc` (Compilation)** | **Mixed (CPU + I/O)** | Compiling a large source code project (like the Linux kernel or a C program) is a realistic "Server" task that stresses both the processor (compiling) and the disk (reading/writing thousands of small files). |
 
 ## 3. Installation Documentation
-[cite_start]All applications were installed via SSH from the workstation, adhering to the headless administration constraint[cite: 47].
+All applications were installed via SSH from the workstation, adhering to the headless administration constraint.
 
 ### Step 1: System Update
 ```bash
@@ -42,10 +42,10 @@ Based on the selected applications, I anticipate the following resource usage be
 
 ## 5. Monitoring Strategy
 To measure the impact of these applications, I will use the following "Remote Monitoring" approach:
-- **Command:** I will use my custom `monitor-server.sh` script to be developed in Week 5, which utilizes top, vmstat, and free commands via SSH.
+- **Command:** I will use my custom `monitor-server.sh` script to be developed in Week 5, which utilizes `top`, `vmstat`, and `free` commands via SSH.
 - **Sampling Rate:** Metrics will be captured every **1 second** during the active test window approx. 60 seconds per test.
 - **Data Capture:**
-  - ***CPU:*** `%usr` (User) and %sys (System) from vmstat.
+  - ***CPU:*** `%usr` (User) and `%sys` (System) from `vmstat`.
   - ***Memory:*** `available` memory from `free -m`.
   - ***Disk:*** `wa` (Wait) time from top to measure I/O blocking.
 
