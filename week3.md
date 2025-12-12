@@ -12,7 +12,7 @@ I have selected three distinct applications to target different system resources
 | :--- | :--- | :--- |
 | **`stress-ng`** | **CPU & RAM Intensive** | An industry-standard stress tool that can generate precise synthetic loads. It allows me to pin CPU usage to 100% or fill RAM to specific limits to test OOM (Out of Memory) handling. |
 | **`iperf3`** | **Network Intensive** | A tool specifically designed to measure maximum TCP/UDP bandwidth. This will test the throughput limits of the virtualized Host-Only network adapter. |
-| **`gcc` (Compilation)** | **Mixed (CPU + I/O)** | Compiling a large source code project (like the Linux kernel or a C program) is a realistic "Server" task that stresses both the processor (compiling) and the disk (reading/writing thousands of small files). |
+| **`gcc` (Compilation)** | **Mixed (CPU + I/O)** | Compiling a large source code project, like the Linux kernel or a C program is a realistic **Server** task that stresses both the processor compiling and the disk for reading/writing thousands of small files. |
 
 ## 3. Installation Documentation
 All applications were installed via SSH from the workstation, adhering to the headless administration constraint.
@@ -28,7 +28,7 @@ sudo apt install -y stress-ng iperf3 build-essential git
 ````
 
 Evidence of Installation
-Figure 1: Verification that stress-ng, iperf3, and gcc are successfully installed on the target server via SSH.
+Verification that `stress-ng`, `iperf3`, and `gcc` are successfully installed on the target server via SSH.
 
 ## 4. Expected Resource Profiles
 Based on the selected applications, I anticipate the following resource usage behaviors during the testing phase:
