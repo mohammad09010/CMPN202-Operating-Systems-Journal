@@ -54,23 +54,11 @@ I installed Fail2Ban to protect the SSH service. It monitors log files for repea
 ### Security Baseline Verification (`security-baseline.sh`)
 This script resides on the server and performs a self-audit of all security configurations implemented in Weeks 4 and 5.
 
-           `nano security-baseline.sh`
+ `nano security-baseline.sh`
 <img width="921" height="904" alt="image" src="https://github.com/user-attachments/assets/d5a65417-8c0a-49a1-b6fd-6c2929f8b069" />
 
 `./monitor-server.sh`
 <img width="664" height="200" alt="image" src="https://github.com/user-attachments/assets/051b21bf-a1de-4a82-b54d-6b38c2bdea72" />
 
-
-```bash
-#!/bin/bash
-# Script: security-baseline.sh
-# Purpose: Verifies security configurations
-# 
-
-# 1. VERIFY FIREWALL (UFW)
-sudo ufw status | grep -q "Status: active"
-check_status "Firewall is active" $?
-
-# 2. VERIFY SSH HARDENING
-sudo grep -q "^PasswordAuthentication no" /etc/ssh/sshd_config
-check_status "SSH Password Auth Disabled" $?
+---
+[< Previous: Week 4](week4.md) | [Return to Home](index.md) | [Next: Week 6 >](week6.md)
