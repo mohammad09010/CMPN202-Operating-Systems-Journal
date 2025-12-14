@@ -25,10 +25,19 @@ sudo apt update && sudo apt upgrade -y
 ### Step 2: Tool InstallationBash# Install stress testing suite and compiler tools
 ```bash
 sudo apt install -y stress-ng iperf3 build-essential git
-````
+```
+<img width="1848" height="670" alt="image" src="https://github.com/user-attachments/assets/42df92b5-9672-45d5-9487-34f7b4ae817d" />
 
 Evidence of Installation
 Verification that `stress-ng`, `iperf3`, and `gcc` are successfully installed on the target server via SSH.
+```bash
+stress-ng --version
+````
+
+```bash
+iperf3 --version
+```
+<img width="1902" height="158" alt="image" src="https://github.com/user-attachments/assets/e10df2b0-4686-4890-bfe1-d5a6565ceacb" />
 
 ## 4. Expected Resource Profiles
 Based on the selected applications, I anticipate the following resource usage behaviors during the testing phase:
