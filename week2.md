@@ -1,10 +1,10 @@
 # Week 2: Security Planning and Testing Methodology
 
 ## 1. Introduction
-Phase 2 focuses on designing a security baseline and defining a consistent methodology for performance analysis. This planning ensures that the implementation phase and testing phase are conducted systematically. The goal is to secure the headless server against common network threats while establishing an observability framework to measure the trade-offs between security overhead and system performance.
+Phase​‍​‌‍​‍‌ 2 is mainly about creating a security baseline and outlining a uniform approach for performance analysis. Such planning stages confirm that the implementation and testing stages are not only orderly but also systematic. The objective is to fortify the headless server against typical network attacks and, at the same time, put in place a monitoring system to quantify the security overhead vs. system performance..
 
 ## 2. Threat Model
-To secure the system effectively, I have identified three specific threats relevant to a networked Linux server. This model prioritizes risks based on the **Dual-System** architecture where **SSH** is the primary attack surface.
+In order to secure the system in the best possible way, I came up with three different kinds of threats that could be the source of trouble for a networked Linux server. This model is organizing the risks around the **Dual-System** architecture where **SSH** is considered the main attack ​‍​‌‍​‍‌surface..
 
 | Threat ID | Threat Description | Potential Impact | Mitigation Strategy |
 | :--- | :--- | :--- | :--- |
@@ -33,7 +33,7 @@ This checklist defines the "Security Baseline" for the server. These controls co
 -  Create a non-root administrative user.
 -  Lock the `root` account password (`sudo passwd -l root`).
 - **Mandatory Access Control:** Verify AppArmor is active (`aa-status`).
-- <img width="1005" height="327" alt="image" src="https://github.com/user-attachments/assets/1910523f-5914-4a2b-814a-e537b17dbad9" />
+<img width="1005" height="327" alt="image" src="https://github.com/user-attachments/assets/1910523f-5914-4a2b-814a-e537b17dbad9" />
 
 ### D. System Maintenance
 -  Install `unattended-upgrades` package.
@@ -60,16 +60,18 @@ I will compare performance across three states:
 
 ## 5. Learning Reflection
 
-Phase 2 was my first experience acting as a "Security Architect" rather than just a "System Administrator." This shift in perspective highlighted several critical trade-offs in secure system design.
+Phase​‍​‌‍​‍‌ 2 was my first experience operating as a "Security Architect" instead of merely a "System Administrator." The change of view made me see a lot of the important trade-offs that are involved in designing a secure system.
 
 **1. The Trade-off between Usability and Security:**
-Designing the firewall ruleset forced me to confront the classic tension between usability and security. By choosing a "Default Deny" policy, I maximized security but introduced a significant administrative risk: if the Workstation's IP address changes, I will be locked out of the server. This taught me that secure configurations often require more rigid and complex management processes.
+When I was tasked with setting up the firewall ruleset, I had to deal with the age-old problem where the needs of the user clash with those of security. In my decision to implement a "Default Deny" policy, I have enhanced security to the maximum level but at the same time, I have created a rather significant administrative risk: if the IP address of the Workstation changes, I will no longer have access to the server. This made me understand that configurations that are secure entail management processes that are more strict and complex.
 
 **2. Proactive vs. Reactive Security:**
-Developing the Threat Model, before touching the terminal was a valuable exercise. It forced me to identify "SSH Brute Force" as the primary risk *before* deployment. This planning phase ensures that the controls implemented later, like disabling password authentication are not just random "best practices," but targeted mitigations for specific, identified risks.
+
+Preparing the Threat Model prior to the actual work at the terminal was a very good move. It made me realize that "SSH Brute Force" should be the first thing to come to mind when considering a risk *before* deployment. The main point of doing so is to make sure that the different controls put in place later, such as the one that disables password authentication, are not only a set of "best practices" picked at random but are actually targeted solutions to the risks that have been identified.
 
 **3. The Constraints of Headless Administration:**
-Planning the monitoring methodology, made the constraints of a "headless" system concrete. I realized I cannot rely on visual tools like 'System Monitor' or local GUI dashboards. This necessitated the design of a remote script (`monitor-server.sh`) to extract data via SSH, reinforcing the importance of command-line proficiency in professional cloud environments.
+
+While devising the monitoring strategy, the limitations of a "headless" system became very apparent to me. I found that I cannot turn to visual instruments like 'System Monitor' or local GUI dashboards. Therefore, it was necessary to create a remote script (`monitor-server.sh`) through which data could be accessed via SSH, thereby emphasizing the indispensable skill of the command-line in professional cloud ​‍​‌‍​‍‌environments.
 
 ---
 [< Previous: Week 1](week1.md) | [Return to Home](index.md) | [Next: Week 3 >](week3.md)
