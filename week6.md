@@ -1,10 +1,9 @@
 # Week 6: Performance Evaluation and Analysis
 
 ## 1. Introduction
-Phase 6 involves the execution of the performance testing plan designed in Week 2. By subjecting the system to synthetic workloads (CPU, Memory, I/O), I established a performance baseline, identified bottlenecks, and implemented specific optimizations to improve system throughput.
+In​‍​‌‍​‍‌ Phase 6, I put into action the performance testing plan that was diagrammed in Week 2. By engineering synthetic workloads (CPU, Memory, I/O) to the system, I not only set up a performance baseline but also recognized bottlenecks and then, through targeted optimizations, elevated the system's throughput.
 
 ## 2. Baseline vs Load Analysis
-
 I conducted tests using `stress-ng` while monitoring the system via the remote script.
 
 ### Performance Data Table
@@ -31,7 +30,8 @@ stress-ng --vm 1 --vm-bytes 75% --timeout 60s --metrics-brief
 stress-ng --io 2 --timeout 60s --metrics-brief
 ````
 <img width="943" height="301" alt="image" src="https://github.com/user-attachments/assets/0724a0a9-ac63-4684-9f40-e019f797508e" />
-*Figure 2: Terminal output from stress-ng confirming 2,400+ bogo ops per second.*
+
+*Terminal output from stress-ng confirming 2,400+ bogo ops per second.*
 
 ## 3. Network Performance Analysis (`iperf3`)
 I evaluated the Host-Only network throughput using `iperf3`.
@@ -81,17 +81,19 @@ iperf3 -c 192.168.56.101 -t 30
 ##### Result: Throughput stability improved, reducing occasional retransmissions.
 
 ## 5. Learning Reflection
-
-Phase 6 provided the most significant insight into the "limitations and trade-offs" of operating system design.
+Besides testing, Phase 6 was a huge eye-opener in terms of limitations and trade-offs of operating system design.
 
 **1. The Trade-off of Optimization (Swappiness):**
-Implementing the `vm.swappiness=10` optimization taught me that performance tuning is a game of trade-offs, not just "free speed." While reducing swappiness improved Disk I/O performance under moderate load, it introduced a new risk: if the physical RAM were to fill completely, the kernel might trigger the OOM (Out of Memory) Killer sooner rather than utilizing the swap space. This highlights that "optimizing for speed" can sometimes mean "sacrificing stability" under extreme conditions.
+
+Through the optimization of `vm.swappiness=10`, I realized that performance tuning is very much a game of trade-offs rather than just one of **free speed**. Although the reduction of swappiness contributed to the acceleration of Disk I/O performance under a moderate load, it came with a new risk: in a case where physical RAM is completely filled, the kernel would have a tendency to fire the OOM (Out of Memory) Killer quickly instead of using the swap space. It underlines the fact that sometimes "speeding up" can mean "downgrading stability" to a certain extent of the condition.
 
 **2. The Reality of Virtualization Overhead:**
-When analyzing the `iperf3` network data, I observed a latency of 0.4ms. While low, this is significantly higher than what would be expected on bare-metal hardware. This quantified the "virtualization tax"—the overhead introduced by the hypervisor (VirtualBox) managing the packet switching between the host and the VM. Understanding this overhead is critical when planning capacity for cloud-based infrastructure.
+
+While examining `iperf3` network data, I spotted 0.4ms latency. Although it's low, it's still significantly higher than the latency that would be expected if it were bare-metal hardware. Hence, it puts a number to the virtualization tax, the overhead caused by the hypervisor (VirtualBox) that manages the packet routing between the host and the VM. Knowing about this overhead is very important when deciding on capacity for cloud-based infrastructure.
 
 **3. Quantitative vs. Qualitative Analysis:**
-Prior to this week, my understanding of system health was qualitative the system feels slow. By using `stress-ng` combined with my monitoring script, I learned to define system health quantitatively ("CPU User time is at 99.8%"). This shift from guessing to measuring is the defining characteristic of professional system administration.
+
+Before this week, my understanding of system health was only qualitative i.e. the system feels slow. By employing `stress-ng` together with my monitoring script, I was able to make system health a quantitative concept. The transition from simply guessing to actually measuring is what professional system administration is essentially all ​‍​‌‍​‍‌about.In​‍​‌‍​‍‌ Phase 6, we put into action the performance testing plan that was diagrammed in Week 2. By engineering synthetic workloads (CPU, Memory, I/O) to the system, I not only set up a performance baseline but also recognized bottlenecks and then, through targeted optimizations, elevated the system's throughput.
 
 ---
 [< Previous: Week 5](week5.md) | [Return to Home](index.md) | [Next: Week 7 >](week7.md)
