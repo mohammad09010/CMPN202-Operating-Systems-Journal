@@ -27,9 +27,10 @@ To address Threat T3 (Unpatched Vulnerabilities), I configured `unattended-upgra
 
 # Enable it
 ```bash
-sudo dpkg-reconfigure --priority=low unattended-upgrades`
-<img width="1831" height="249" alt="Screenshot 2025-12-14 085300" src="https://github.com/user-attachments/assets/ad915c56-5005-4090-a9d5-a2c9bdf2fde4" />
+sudo dpkg-reconfigure --priority=low unattended-upgrades
 ```
+<img width="1831" height="249" alt="Screenshot 2025-12-14 085300" src="https://github.com/user-attachments/assets/ad915c56-5005-4090-a9d5-a2c9bdf2fde4" />
+
 ```bash
 systemctl status unattended-upgrades --no-pager
 ```
@@ -60,10 +61,14 @@ sudo fail2ban-client status
 ### Security Baseline Verification (`security-baseline.sh`)
 This script resides on the server and performs a self-audit of all security configurations implemented in Weeks 4 and 5.
 
- `nano security-baseline.sh`
+ ```bash
+ nano security-baseline.sh
+```
 <img width="921" height="904" alt="image" src="https://github.com/user-attachments/assets/d5a65417-8c0a-49a1-b6fd-6c2929f8b069" />
 
-`./monitor-server.sh`
+```bash
+./monitor-server.sh
+```
 <img width="664" height="200" alt="image" src="https://github.com/user-attachments/assets/051b21bf-a1de-4a82-b54d-6b38c2bdea72" />
 
 ## 4. Learning Reflection
