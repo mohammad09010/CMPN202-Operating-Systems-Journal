@@ -5,7 +5,7 @@
 The​‍​‌‍​‍‌ aim of this initial stage was to create a secure dual-system architecture and rollout the first **Linux server** environment. This phase is about setting up a **headless server** infrastructure, which is controlled completely through the command line, in order to mimic professional cloud management methods and save system resources.
 
 ## 2. System Architecture Diagram
-The diagram below shows the two-system topology designed as part of the coursework. It depicts a rigorous separation between the **Control Plane ** (Workstation) and the **Target Environment** (Server) which are linked through an isolated Host-Only ​‍​‌‍​‍‌network.
+The diagram below shows the two-system topology designed as part of the coursework. It depicts a rigorous separation between the **Control Plane** (Workstation) and the **Target Environment** (Server) which are linked through an isolated Host-Only ​‍​‌‍​‍‌network.
 
 <img width="4674" height="1445" alt="System Architecture" src="https://github.com/user-attachments/assets/31cfdda7-e91d-4ffe-b310-bfdeda2674c8" />
 **High-level system architecture showing the VirtualBox Host-Only network topology.**
