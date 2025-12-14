@@ -1,13 +1,14 @@
 # Week 7: Security Audit and System Evaluation
 
 ## 1. Introduction
-Phase 7 concludes the project with a comprehensive security audit. Using industry-standard tools (`Lynis` and `Nmap`), I evaluated the security posture of the server, remediated identified vulnerabilities, and documented the final system configuration.
+Phase​‍​‌‍​‍‌ 7 wraps up the project with a full security audit. I went through the security posture of the server with standard security tools (`Lynis` and `Nmap`), fixed the security issues that were found, and recorded the final system ​‍​‌‍​‍‌setup.
 
 ## 2. Infrastructure Security Assessment (Lynis)
 I performed a system auditing scan using **Lynis**.
 
 ### Initial Scan (Before Remediation)
-The initial scan identified several warnings, primarily related to missing legal banners and filesystem hardening.
+The​‍​‌‍​‍‌ first scan came up with a couple of warnings. These warnings were mostly about the absence of legal banners and the need for filesystem ​‍​‌‍​‍‌hardening.
+
 * **Initial Hardening Index:** 64
 ```bash
 sudo apt update
@@ -57,6 +58,7 @@ The scan confirms that the attack surface is minimized. Only the SSH service is 
 
 ## 4. Service Inventory & Justification
 The following services were found running on the system. All are necessary for the server's function.
+
  ```bash
 systemctl list-units --type=service --state=running
 ```
@@ -82,9 +84,8 @@ Despite hardening, some risks remain and must be managed.
 | **Virtualization Escape** | High | An attacker escaping the VM to the Host. **Mitigation:** Keep VirtualBox patched and use the restricted Host-Only network. |
 
 ## 6. Project Reflection
-This coursework simulated the full lifecycle of a Linux server deployment. Starting from a raw ISO, I successfully deployed a headless server, secured it with industry-standard controls (UFW, AppArmor, Fail2Ban), automated its maintenance, and validated its performance with quantitative data.
-
-The most significant learning outcome was **LO5 (Trade-offs)**. Every security decision (like disabling passwords or restricting network traffic) added complexity to the administration process. Security is not a product but a process of balancing usability with protection.
+The​‍​‌‍​‍‌ initial scan came up with a handful of warnings that were mostly about missing legal banners and filesystem hardening.
+This coursework was a simulation of the entire Linux server deployment lifecycle. From a raw ISO, I managed to deploy a headless server, secure it with industry-standard controls (UFW, AppArmor, Fail2Ban), automate its maintenance, and confirm its performance with quantitative data. What stands out the most as a learning point was **LO5 (Trade-offs)**. The security decisions made, like disabling passwords or restricting network traffic security at the cost of administration becoming more complex. Security is not a product but a process of balancing usability with ​‍​‌‍​‍‌protection.
 
 ---
 [< Previous: Week 6](week6.md) | [Return to Home](index.md)
