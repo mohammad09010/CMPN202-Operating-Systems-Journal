@@ -1,7 +1,10 @@
 # CMPN202 Operating Systems Technical Journal
 **Student ID:** A00031761
+
 **Name:** Mohammad Betab Alam
+
 **Module:** CMPN202 Operating Systems
+
 **University:** University of Roehampton
 
 ## Project Overview
