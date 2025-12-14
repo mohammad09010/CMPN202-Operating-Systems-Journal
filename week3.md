@@ -1,12 +1,12 @@
 # Phase 3: Application Selection for Performance Testing (Week 3)
 
-**Objective:** Must install the software that will use to `stress` the server later in Week 6. You also need to document how you installed SSH, and what you expect it to do to the system CPU vs. RAM usage.
+**Objective:** Need to install the software with which you will later `stress` the server in Week 6. Also, it is necessary for you to document the installation of SSH, and what your expectation is in terms of the system CPU vs. RAM ​‍​‌‍​‍‌usage.
 
 ## 1. Introduction
-Phase 3 focuses on selecting and deploying applications that will generate specific workloads on the server. The objective is to simulate realistic stress scenarios to evaluate the operating system's resource management capabilities.
+Phase​‍​‌‍​‍‌ 3 revolves around choosing and implementing software programs to create certain workloads on the server. The goal is to produce real-life stress scenarios to test how the OS handles resource ​‍​‌‍​‍‌allocation.
 
 ## 2. Application Selection Matrix
-I have selected three distinct applications to target different system resources (CPU, Memory, I/O, and Network).
+My​‍​‌‍​‍‌ choice landed on three different applications to target various system ​‍​‌‍​‍‌resources (CPU, Memory, I/O, and Network).
 
 | Application | Workload Type | Justification |
 | :--- | :--- | :--- |
@@ -73,16 +73,19 @@ To measure the impact of these applications, I will use the following **Remote M
   - ***Disk:*** `wa` (Wait) time from top to measure I/O blocking.
 
 ## 6. Learning Reflection
-Phase 3 focused on preparing the environment for stress testing, which brought practical networking challenges to the forefront.
+Phase​‍​‌‍​‍‌ 3 revolved around getting the environment ready for stress tests, which eventually highlighted networking issues that were previously less noticeable.
 
 **1. The "Air-Gap" Trade-off:**
-The most significant challenge this week was the conflict between the secure "Host-Only" network requirement and the practical need to install software. The server could not reach the `apt` repositories to install `stress-ng` or `iperf3`. I had to temporarily re-architect the network adding a NAT adapter to facilitate these updates. This demonstrated a real-world operational trade-off: highly secure, isolated networks make simple maintenance tasks like patching significantly more complex.
+
+The main difficulty of this period was the antagonism between the secured "Host-Only" network and a reasonable course of action which was software installation. Since the server was disconnected from `apt` repositories, it was impossible to install `stress-ng` or `iperf3` by using a command line. To make these updates possible, I temporarily redesigned the network by adding a **NAT** adapter. This operational incident exemplifies the so-called **trade-off** in the real-world scenario of the IT industry, where highly secured, isolated networks cause quite a few problems for simple maintenance tasks such as patching.
 
 **2. Synthetic vs. Realistic Workloads:**
-In selecting the applications, I learned to distinguish between "Synthetic" and "Realistic" loads. While `stress-ng` is excellent for pushing hardware to its theoretical limit (100% CPU), it does not accurately model the chaotic behavior of a real server. This is why I included `gcc` compilation, it creates a "bursty" workload that stresses the CPU, RAM, and Disk simultaneously, providing a more holistic view of how the OS handles resource contention.
+
+During the process of app picking, I was introduced to the concept of distinguishing **Synthetic ** from **Realistic** loads. It is `stress-ng` which is a good tool for hardware performance under theoretical situations (100% CPU), however, it is not able to simulate chaotic operations of a server in the real world. That is the reason why I supplemented `gcc` compilation, which by nature is bursty workload that severely stresses CPU, RAM, and Disk at the same time and thus, gives a better insight of resource contention in the OS environment.
 
 **3. The Observer Effect:**
-I deliberately chose `iperf3` and `stress-ng` because they can be run in "daemon" or "quiet" modes. I realized that if I used heavy monitoring tools *on* the server itself, the monitoring tool would consume resources, skewing the test results. This validated the decision to offload data collection to the Workstation via SSH.
+
+It was on purpose that I selected `iperf3` and `stress-ng` as they both have daemon or quiet modes in which they can be run. Heavy monitoring tools *on* the server that is being tested would lead to resource consumption by a monitoring tool and therefore, the test results would be distorted. Here thus, the decision to offload data collection to the Workstation via SSH is ​‍​‌‍​‍‌confirmed.
 
 ---
 [< Previous: Week 2](week2.md) | [Return to Home](index.md) | [Next: Week 4 >](week4.md)
