@@ -63,15 +63,16 @@ I will compare performance across three states:
 Phase​‍​‌‍​‍‌ 2 was my first experience operating as a "Security Architect" instead of merely a "System Administrator." The change of view made me see a lot of the important trade-offs that are involved in designing a secure system.
 
 **1. The Trade-off between Usability and Security:**
-When I was tasked with setting up the firewall ruleset, I had to deal with the age-old problem where the needs of the user clash with those of security. In my decision to implement a "Default Deny" policy, I have enhanced security to the maximum level but at the same time, I have created a rather significant administrative risk: if the IP address of the Workstation changes, I will no longer have access to the server. This made me understand that configurations that are secure entail management processes that are more strict and complex.
+
+When I was tasked with setting up the firewall ruleset, I had to deal with the age-old problem where the needs of the user clash with those of security. In my decision to implement a **Default Deny** policy, I have enhanced security to the maximum level but at the same time, I have created a rather significant administrative risk: if the IP address of the Workstation changes, I will no longer have access to the server. This made me understand that configurations that are secure entail management processes that are more strict and complex.
 
 **2. Proactive vs. Reactive Security:**
 
-Preparing the Threat Model prior to the actual work at the terminal was a very good move. It made me realize that "SSH Brute Force" should be the first thing to come to mind when considering a risk *before* deployment. The main point of doing so is to make sure that the different controls put in place later, such as the one that disables password authentication, are not only a set of "best practices" picked at random but are actually targeted solutions to the risks that have been identified.
+Preparing the Threat Model prior to the actual work at the terminal was a very good move. It made me realize that **SSH Brute Force **should be the first thing to come to mind when considering a risk *before* deployment. The main point of doing so is to make sure that the different controls put in place later, such as the one that disables password authentication, are not only a set of "best practices" picked at random but are actually targeted solutions to the risks that have been identified.
 
 **3. The Constraints of Headless Administration:**
 
-While devising the monitoring strategy, the limitations of a "headless" system became very apparent to me. I found that I cannot turn to visual instruments like 'System Monitor' or local GUI dashboards. Therefore, it was necessary to create a remote script (`monitor-server.sh`) through which data could be accessed via SSH, thereby emphasizing the indispensable skill of the command-line in professional cloud ​‍​‌‍​‍‌environments.
+While devising the monitoring strategy, the limitations of a **headless** system became very apparent to me. I found that I cannot turn to visual instruments like 'System Monitor' or local GUI dashboards. Therefore, it was necessary to create a remote script `monitor-server.sh` through which data could be accessed via **SSH**, thereby emphasizing the indispensable skill of the command-line in professional cloud ​‍​‌‍​‍‌environments.
 
 ---
 [< Previous: Week 1](week1.md) | [Return to Home](index.md) | [Next: Week 3 >](week3.md)
