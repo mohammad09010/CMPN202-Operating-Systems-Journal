@@ -19,7 +19,11 @@ All applications were installed via SSH from the workstation, adhering to the he
 
 ### Step 1: System Update
 ```bash
-sudo apt update && sudo apt upgrade -y
+sudo apt update
+```
+
+```bash
+sudo apt upgrade -y
 ````
 
 ### Step 2: Tool InstallationBash# Install stress testing suite and compiler tools
