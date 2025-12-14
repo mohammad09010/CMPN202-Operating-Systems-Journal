@@ -2,7 +2,7 @@
 # Week 1: System Planning and Distribution Selection
 
 ## 1. Introduction
-The​‍​‌‍​‍‌ aim of this initial stage was to create a secure dual-system architecture and rollout the first **Linux server** environment. This phase is about setting up a **headless server** infrastructure, which is controlled completely through the command line, in order to mimic professional cloud management methods and save system resources.
+The​‍​‌‍​‍‌ aim of this initial stage was to create a secure dual-system architecture and rollout the first **Linux server** environment. This phase is about setting up a **Headless server** infrastructure, which is controlled completely through the command line, in order to mimic professional cloud management methods and save system resources.
 
 ## 2. System Architecture Diagram
 The diagram below shows the two-system topology designed as part of the coursework. It depicts a rigorous separation between the **Control Plane** (Workstation) and the **Target Environment** (Server) which are linked through an isolated Host-Only ​‍​‌‍​‍‌network.
@@ -32,7 +32,7 @@ The network is the critical security boundary for this project.
 * **Network Mode:** Host-Only Adapter and Bridged Adapter
 * **Subnet:** `192.168.56.101/24`
 
-This configuration ensures the server is isolated from the public internet preventing external attacks, while allowing direct SSH access from my workstation. This simulates a **Back-End** network often found in tiered web architecture.
+By​‍​‌‍​‍‌ configuring the server in this manner, the server is basically separated from the public internet, and thus, external attacks are prevented. At the same time, direct SSH access is still allowed from my workstation. This is a typical example of a network which is used as **Back-End** in a tiered web ​‍​‌‍​‍‌architecture.
 
 ## 6. System Specifications (CLI Evidence)
 The following screenshots verify the successful deployment of the headless server and the operating system specifications.
