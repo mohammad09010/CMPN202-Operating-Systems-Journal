@@ -2,11 +2,10 @@
 # Week 1: System Planning and Distribution Selection
 
 ## 1. Introduction
-The objective of this first phase was to design a secure dual-system architecture and deploy the initial Linux server environment. This phase focuses on establishing a **Headless** server infrastructure—managed entirely via the command line-to replicate professional cloud administration practices and reduce resource overhead.
+The​‍​‌‍​‍‌ aim of this initial stage was to create a secure dual-system architecture and rollout the first **Linux server** environment. This phase is about setting up a **headless server** infrastructure, which is controlled completely through the command line, in order to mimic professional cloud management methods and save system resources.
 
 ## 2. System Architecture Diagram
-The following diagram illustrates the dual-system topology designed for this coursework. It features a strict
- separation between the **Control Plane** (Workstation) and the **Target Environment** (Server), connected via an isolated Host-Only network.
+The diagram below shows the two-system topology designed as part of the coursework. It depicts a rigorous separation between the **Control Plane ** (Workstation) and the **Target Environment** (Server) which are linked through an isolated Host-Only ​‍​‌‍​‍‌network.
 
 <img width="4674" height="1445" alt="System Architecture" src="https://github.com/user-attachments/assets/31cfdda7-e91d-4ffe-b310-bfdeda2674c8" />
 **High-level system architecture showing the VirtualBox Host-Only network topology.**
@@ -64,7 +63,7 @@ The following screenshots verify the successful deployment of the headless serve
 **Confirmation of the Ubuntu 24.04 LTS distribution.**
 
 ## 7. Learning Reflection
-During this week, I learned the importance of defining network boundaries before deployment. Setting up the Host-Only network initially failed because the DHCP server was disabled in VirtualBox; troubleshooting this reinforced my understanding of how virtual switches assign IP addresses. I also realized how significantly the removal of a GUI affects resource usage, as the server idles at a fraction of the RAM required for a desktop installation.
+This​‍​‌‍​‍‌ week, I came to understand that it is very important to clearly set the limits of a network before launching it. The failure of the Host-Only network setup at the very beginning was due to the fact that the DHCP server was off in VirtualBox; by fixing this, I deepened my knowledge of how virtual switches allocate IP addresses. Additionally, I became aware of the substantial difference in resource consumption when a GUI is taken away, as the server is at a very small portion of the RAM that a desktop installation would need while it is ​‍​‌‍​‍‌idle.
 
 ---
 [Return to Home](index.md) | [Next: Week 2 >](week2.md)
