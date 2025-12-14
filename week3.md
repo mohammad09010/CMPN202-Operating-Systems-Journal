@@ -77,11 +77,11 @@ Phase​‍​‌‍​‍‌ 3 revolved around getting the environment ready fo
 
 **1. The "Air-Gap" Trade-off:**
 
-The main difficulty of this period was the antagonism between the secured "Host-Only" network and a reasonable course of action which was software installation. Since the server was disconnected from `apt` repositories, it was impossible to install `stress-ng` or `iperf3` by using a command line. To make these updates possible, I temporarily redesigned the network by adding a **NAT** adapter. This operational incident exemplifies the so-called **trade-off** in the real-world scenario of the IT industry, where highly secured, isolated networks cause quite a few problems for simple maintenance tasks such as patching.
+The main difficulty of this period was the antagonism between the secured **Host-Only **network and a reasonable course of action which was software installation. Since the server was disconnected from `apt` repositories, it was impossible to install `stress-ng` or `iperf3` by using a command line. To make these updates possible, I temporarily redesigned the network by adding a **NAT** adapter. This operational incident exemplifies the so-called **trade-off** in the real-world scenario of the IT industry, where highly secured, isolated networks cause quite a few problems for simple maintenance tasks such as patching.
 
 **2. Synthetic vs. Realistic Workloads:**
 
-During the process of app picking, I was introduced to the concept of distinguishing **Synthetic ** from **Realistic** loads. It is `stress-ng` which is a good tool for hardware performance under theoretical situations (100% CPU), however, it is not able to simulate chaotic operations of a server in the real world. That is the reason why I supplemented `gcc` compilation, which by nature is bursty workload that severely stresses CPU, RAM, and Disk at the same time and thus, gives a better insight of resource contention in the OS environment.
+During the process of app picking, I was introduced to the concept of distinguishing **Synthetic** from **Realistic** loads. It is `stress-ng` which is a good tool for hardware performance under theoretical situations (100% CPU), however, it is not able to simulate chaotic operations of a server in the real world. That is the reason why I supplemented `gcc` compilation, which by nature is bursty workload that severely stresses CPU, RAM, and Disk at the same time and thus, gives a better insight of resource contention in the OS environment.
 
 **3. The Observer Effect:**
 
