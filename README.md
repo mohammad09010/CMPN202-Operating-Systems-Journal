@@ -10,9 +10,9 @@
 A technical journal documenting the configuration, security hardening, and performance analysis of a headless Linux server infrastructure.
 
 ## Project Overview
-This technical journal documents the implementation of a secure Linux server infrastructure, designed to demonstrate professional system administration skills and critical analysis of operating system behavior.
+Such​‍​‌‍​‍‌ a technical journal exemplifies the creation of a robust Linux server environment that not only illustrates professional sysadmin competencies but also the capacity for critical evaluation of operating system behavior.
 
-The project involves the deployment of a dual-system architecture consisting of a **headless Linux server** managed exclusively via SSH and a separate **administrative workstation**. Over the course of 7 weeks, this journal records the iterative process of:
+The endeavour centres around the installation of a two-computer setup with a **headless Linux server** that is the only management target by means of SSH and a separate **administrative workstation**. This log of the 7 weeks documents the step-by-step, repetitive pathway ​‍​‌‍​‍‌of:
 
 1.  **System Planning:** Designing a virtualized network architecture.
 2.  **Security Hardening:** Implementing industry-standard controls including SSH key authentication, firewalls (UFW), and intrusion detection (Fail2Ban)
