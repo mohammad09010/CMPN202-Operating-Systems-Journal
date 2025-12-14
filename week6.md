@@ -94,4 +94,4 @@ When analyzing the `iperf3` network data, I observed a latency of 0.4ms. While l
 Prior to this week, my understanding of system health was qualitative the system feels slow. By using `stress-ng` combined with my monitoring script, I learned to define system health quantitatively ("CPU User time is at 99.8%"). This shift from guessing to measuring is the defining characteristic of professional system administration.
 
 ---
-[< Previous: Week 4](week4.md) | [Return to Home](index.md) | [Next: Week 6 >](week6.md)
+[< Previous: Week 5](week5.md) | [Return to Home](index.md) | [Next: Week 7 >](week7.md)
