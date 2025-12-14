@@ -39,6 +39,7 @@ I modified the SSH daemon configuration to strictly enforce the new security pol
 | :--- | :--- | :--- | :--- |
 | `PermitRootLogin` | `yes` | **`no`** | Prevents direct root access. |
 | `PasswordAuthentication` | `yes` | **`no`** | Eliminates password guessing attacks. |
+| `PubkeyAuthentication` | `yes` | **`yes`** | Enforces the use of cryptographic keys. |
 
 ### Configuration Verification
 ```bash
@@ -69,5 +70,8 @@ sudo ufw status verbose
 
 *Output of `ufw status verbose` confirming the strict access control rules.*
 
+#### 5. Learning Reflection
+
+This week highlighted the risk of remote administration. When disabling password authentication, I realized that a mistake in the `sshd_config` or a lost private key would result in a permanent lockout from the "headless" server. To prevent this, I kept one terminal session open while testing the new configuration in a second terminal—a critical safety practice in systems administration.
 ---
 [< Previous: Week 3](week3.md) | [Return to Home](index.md) | [Next: Week 5 >](week5.md)
