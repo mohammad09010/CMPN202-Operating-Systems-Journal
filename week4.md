@@ -71,7 +71,7 @@ sudo ufw status verbose
 
 #### 5. Learning Reflection
 
-This week highlighted the risk of remote administration. When disabling password authentication, I realized that a mistake in the `sshd_config` or a lost private key would result in a permanent lockout from the "headless" server. To prevent this, I kept one terminal session open while testing the new configuration in a second terminal, a critical safety practice in systems administration.
+Risks​‍​‌‍​‍‌ associated with remote administration were brought to my attention this week. While turning off password authentication, it dawned on me that an error in the `sshd_config` file or a misplacement of the private key could make it impossible to gain access to the **headless** server forever. In order to save myself from this fate, I always used one terminal session to keep an eye on the new configuration, which I was testing in a second terminal session, a very important safety measure in system ​‍​‌‍​‍‌administration.
 
 ---
 [< Previous: Week 3](week3.md) | [Return to Home](index.md) | [Next: Week 5 >](week5.md)
