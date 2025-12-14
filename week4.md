@@ -30,7 +30,6 @@ ssh-keygen -t ed25519
 ```
 <img width="924" height="512" alt="image" src="https://github.com/user-attachments/assets/5636318d-8c21-41cf-823b-da3c9058a9ed" />
 
-
 *Successful SSH connection using cryptographic keys.*
 
 ### Configuration File Comparison (`/etc/ssh/sshd_config`)
@@ -45,8 +44,10 @@ I modified the SSH daemon configuration to strictly enforce the new security pol
 ```bash
 grep -E "PermitRoot|PasswordAuth" /etc/ssh/sshd_config
 ```
-<img width="850" height="217" alt="image" src="https://github.com/user-attachments/assets/b286f71a-7151-4037-ae34-503363eb42b5" />
 *Grep output confirming that PasswordAuthentication and PermitRootLogin are disabled.*
+<img width="850" height="217" alt="image" src="https://github.com/user-attachments/assets/b286f71a-7151-4037-ae34-503363eb42b5" />
+
+
 
 ## 4. Firewall Configuration (UFW)
 I implemented a "Whitelist" strategy using UFW. The default policy rejects all incoming traffic. The only exception is Port 22 (SSH), restricted to the administrative workstation.
@@ -65,7 +66,8 @@ sudo ufw allow from 192.168.1.84 to any port 22
 sudo ufw status verbose
 ```
 <img width="833" height="295" alt="image" src="https://github.com/user-attachments/assets/aad0a82b-3d9c-4455-af02-ae496764628e" />
-* Output of `ufw status verbose` confirming the strict access control rules.*
+
+*Output of `ufw status verbose` confirming the strict access control rules.*
 
 ---
 [< Previous: Week 3](week3.md) | [Return to Home](index.md) | [Next: Week 5 >](week5.md)
