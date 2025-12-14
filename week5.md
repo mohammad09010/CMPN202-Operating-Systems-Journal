@@ -1,12 +1,12 @@
 # Week 5: Advanced Security and Monitoring Infrastructure
 
 ## 1. Introduction
-Phase 5 focuses on automating security verification and establishing continuous observability. I implemented advanced access controls (AppArmor), intrusion detection (Fail2Ban), and automatic patching. Furthermore, I developed custom scripts to automate the verification of these controls and to monitor system performance remotely.
+Phase​‍​‌‍​‍‌ 5 is about automation of security verification and setting up continuous observability. I have set up sophisticated access controls (AppArmor), intrusion detection (Fail2Ban), and automatic patching. Additionally, I have written some scripts for automation of checking these controls and also for remote monitoring of system performance.
 
 ## 2. Advanced Security Implementation
 
 ### Access Control (AppArmor)
-I verified that AppArmor is active to enforce Mandatory Access Control (MAC). This restricts programs to a limited set of resources, mitigating the impact if a specific service is compromised.
+I made sure that AppArmor was running to provide **Mandatory Access Control (MAC)** enforcement. In this way, the different programs are limited to using only a small number of resources, thus lessening the possibility of damage if a particular service has been ​‍​‌‍​‍‌attacked.
 
 # Update package lists
 ```bash
@@ -35,11 +35,11 @@ sudo dpkg-reconfigure --priority=low unattended-upgrades
 systemctl status unattended-upgrades --no-pager
 ```
 <img width="919" height="193" alt="image" src="https://github.com/user-attachments/assets/ded29715-1df9-431a-a2d5-cb96c6a5f233" />
+
 *Service status showing unattended-upgrades is active and running.*
 
 ### Intrusion Detection (Fail2Ban)
-I installed Fail2Ban to protect the SSH service. It monitors log files for repeated failed login attempts and bans the offending IP address by updating firewall rules dynamically.
-
+I​‍​‌‍​‍‌ set up **Fail2Ban** to make my **SSH** service secure. **Fail2Ban** scans log files for situations where the same username or **IP** address makes a failed login attempt, and in such cases, it dynamically changes the firewall rules to forbid the IP address that caused the trouble.
 
 ```bash
 sudo apt install -y fail2ban
@@ -72,16 +72,19 @@ This script resides on the server and performs a self-audit of all security conf
 <img width="664" height="200" alt="image" src="https://github.com/user-attachments/assets/051b21bf-a1de-4a82-b54d-6b38c2bdea72" />
 
 ## 4. Learning Reflection
-This week presented significant challenges regarding network isolation and cross-platform administration.
+Network isolation and cross-platform administration caused a lot of issues this week.
 
 **1. Managing Isolated Networks:**
-I encountered a critical error when attempting to install Fail2Ban: `Failed to enable unit: Unit file fail2ban.service does not exist`. This occurred because the Host-Only network, while secure, prevented the server from reaching package repositories. This highlighted a key trade-off in secure infrastructure design: strict isolation complicates maintenance. I resolved this by temporarily attaching a NAT interface to perform updates, learning that maintenance windows require dynamic network reconfiguration.
+
+I run into a major mistake in the course of Fail2Ban installation: `Failed to enable unit: Unit file fail2ban.service does not exist`. The error was due to the fact that the Host-Only network, although it provides security, does not give the server the way to the package repositories. This brought out the critical point of a secure infrastructure design: strict isolation makes the system hard to maintain. To sort this out, I temporarily attached a NAT interface to perform updates and realized that maintenance windows demand dynamic network reconfiguration.
 
 **2. The Value of Automated Auditing:**
-Developing the `security-baseline.sh` script shifted my perspective from "manual configuration" to "automated verification." In a professional environment with dozens of servers, manually checking `ufw status` is unscalable. By scripting these checks, I established a repeatable audit process that eliminates human error and ensures the security baseline remains consistent over time.
+
+The creation of `security-baseline.sh` file made me aware of the huge difference between manual configuration of the system and automated verification thereof. Manual checking of `ufw status` in a real-life scenario that comprises dozens of servers is not possible. The scripting of these checks by me resulted in a fully-fledged and repeatable auditing process that eliminates human error and guarantees that security baseline will always stay at the same level.
 
 **3. Cross-Platform Administration:**
-A major hurdle was the "Headless Administration" constraint. My workstation runs Windows, which cannot natively execute the Bash-based `monitor-server.sh` script. To overcome this, I adapted the logic into a PowerShell script (`monitor-server.ps1`). This experience demonstrated the importance of adaptability in system administration—while the server is Linux, the tools used to manage it must often interface with different client operating systems.
+
+The main issue was the limitation of "Headless Administration." I work on Windows, which cannot directly run the Bash script `monitor-server.sh`. To solve this problem, I rewrote the logic in a PowerShell script (`monitor-server.ps1`). The takeaway from this incident is that system administrators must be adaptable as the server may be Linux but the management tools might need to interact with different client ​‍​‌‍​‍‌OSs..
 
 ---
 [< Previous: Week 4](week4.md) | [Return to Home](index.md) | [Next: Week 6 >](week6.md)
