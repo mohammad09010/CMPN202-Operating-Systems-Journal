@@ -16,6 +16,7 @@ I verified that AppArmor is active to enforce Mandatory Access Control (MAC). Th
 
 # Check status (Take Screenshot 1 here)
 `sudo aa-status`
+
 <img width="539" height="863" alt="image" src="https://github.com/user-attachments/assets/58696b20-ee30-46a2-b6b3-3697fdc9a9ab" />
 *Verification that the AppArmor module is loaded and enforcing profiles.*
 
@@ -42,6 +43,7 @@ I installed Fail2Ban to protect the SSH service. It monitors log files for repea
 # Start and Enable the service
 `sudo systemctl enable fail2ban`
 `sudo systemctl start fail2ban`
+
 <img width="909" height="56" alt="image" src="https://github.com/user-attachments/assets/ac046daf-f40a-493b-9787-2141ea01afa3" />
 
 # Check status 
@@ -59,6 +61,18 @@ This script resides on the server and performs a self-audit of all security conf
 
 `./monitor-server.sh`
 <img width="664" height="200" alt="image" src="https://github.com/user-attachments/assets/051b21bf-a1de-4a82-b54d-6b38c2bdea72" />
+
+## 4. Learning Reflection
+This week presented significant challenges regarding network isolation and cross-platform administration.
+
+**1. Managing Isolated Networks:**
+I encountered a critical error when attempting to install Fail2Ban: `Failed to enable unit: Unit file fail2ban.service does not exist`. This occurred because the Host-Only network, while secure, prevented the server from reaching package repositories. This highlighted a key trade-off in secure infrastructure design: strict isolation complicates maintenance. I resolved this by temporarily attaching a NAT interface to perform updates, learning that maintenance windows require dynamic network reconfiguration.
+
+**2. The Value of Automated Auditing:**
+Developing the `security-baseline.sh` script shifted my perspective from "manual configuration" to "automated verification." In a professional environment with dozens of servers, manually checking `ufw status` is unscalable. By scripting these checks, I established a repeatable audit process that eliminates human error and ensures the security baseline remains consistent over time.
+
+**3. Cross-Platform Administration:**
+A major hurdle was the "Headless Administration" constraint. My workstation runs Windows, which cannot natively execute the Bash-based `monitor-server.sh` script. To overcome this, I adapted the logic into a PowerShell script (`monitor-server.ps1`). This experience demonstrated the importance of adaptability in system administration—while the server is Linux, the tools used to manage it must often interface with different client operating systems.
 
 ---
 [< Previous: Week 4](week4.md) | [Return to Home](index.md) | [Next: Week 6 >](week6.md)
