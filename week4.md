@@ -1,10 +1,10 @@
 # Week 4: Initial System Configuration & Security Implementation
 
 ## 1. Introduction
-Phase 4 marks the transition from planning to active security implementation. The objective was to deploy foundational controls to the headless server, specifically replacing password-based authentication with cryptographic keys and implementing a strict firewall policy.
+Phase​‍​‌‍​‍‌ 4 is about moving from the plans to actually carrying out the security measures. The goal was to install basic security measures on the headless server, in particular, by substituting password-based authentication with cryptographic keys and setting up a tightly controlled firewall policy.
 
 ## 2. User Privilege Management
-To mitigate the risk of privilege escalation (Threat T2), I created a dedicated non-root administrative user `admin_user` and granted them limited `sudo` privileges.
+To limit the risk of privilege escalation (Threat T2), I set up a special non-root administrative user `admin_user` and gave him/her limited `sudo` ​‍​‌‍​‍‌privileges.
 
 ### Implementation Command:
 ```bash
@@ -45,13 +45,12 @@ I modified the SSH daemon configuration to strictly enforce the new security pol
 ```bash
 grep -E "PermitRoot|PasswordAuth" /etc/ssh/sshd_config
 ```
-*Grep output confirming that PasswordAuthentication and PermitRootLogin are disabled.*
 <img width="850" height="217" alt="image" src="https://github.com/user-attachments/assets/b286f71a-7151-4037-ae34-503363eb42b5" />
 
-
+*Grep output confirming that PasswordAuthentication and PermitRootLogin are disabled.*
 
 ## 4. Firewall Configuration (UFW)
-I implemented a "Whitelist" strategy using UFW. The default policy rejects all incoming traffic. The only exception is Port 22 (SSH), restricted to the administrative workstation.
+I​‍​‌‍​‍‌ made use of UFW to execute a **Whitelist** policy. Basically, all incoming connections are denied by default. The single allowable exception is **port 22** (SSH) limited to the admin ​‍​‌‍​‍‌workstation..
 
 #### Configure Firewall (UFW)
 ```bash
