@@ -19,7 +19,7 @@ For the server environment, I selected **Ubuntu Server 24.04 LTS**. The decision
 | **Debian 12** | Extremely stable and lightweight; 100% free open-source software. | Older package versions in stable repositories; slightly steeper learning curve for configuration. | Rejected |
 | **CentOS Stream / Rocky** | RHEL-binary compatible; Enterprise standard. | Shift in release model created uncertainty; smaller community documentation for beginners. | Rejected |
 
-**Rationale:** Ubuntu Server was chosen because it provides a balance of enterprise-grade stability and up-to-date software packages. Furthermore, running the server **headless** without a GUI aligns with the sustainability goals of reducing energy consumption and hardware resource usage.
+**Rationale:** Ubuntu​‍​‌‍​‍‌ Server is the one to be picked since it offers a good mixture of highly stable from the enterprise side and still very up-to-date with the software packages. On top of that, the decision to go **headless** without a GUI is also very much in line with the energy-saving and hardware resource-saving aspects of the sustainability ​‍​‌‍​‍‌goals..
 
 ## 4. Workstation Configuration
 To manage the server, I have opted for **Option B (Host Machine)**.
