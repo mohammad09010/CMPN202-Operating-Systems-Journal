@@ -1,6 +1,6 @@
 # Phase 3: Application Selection for Performance Testing (Week 3)
 
-**Objective:** Must install the software you will use to `stress` the server later in Week 6. You also need to document how you installed SSH, and what you expect it to do to the system CPU vs. RAM usage.
+**Objective:** Must install the software that will use to `stress` the server later in Week 6. You also need to document how you installed SSH, and what you expect it to do to the system CPU vs. RAM usage.
 
 ## 1. Introduction
 Phase 3 focuses on selecting and deploying applications that will generate specific workloads on the server. The objective is to simulate realistic stress scenarios to evaluate the operating system's resource management capabilities.
@@ -74,6 +74,7 @@ To measure the impact of these applications, I will use the following **Remote M
 
 ## 6. Learning Reflection
 Phase 3 focused on preparing the environment for stress testing, which brought practical networking challenges to the forefront.
+
 **1. The "Air-Gap" Trade-off:**
 The most significant challenge this week was the conflict between the secure "Host-Only" network requirement and the practical need to install software. The server could not reach the `apt` repositories to install `stress-ng` or `iperf3`. I had to temporarily re-architect the network adding a NAT adapter to facilitate these updates. This demonstrated a real-world operational trade-off: highly secure, isolated networks make simple maintenance tasks like patching significantly more complex.
 
