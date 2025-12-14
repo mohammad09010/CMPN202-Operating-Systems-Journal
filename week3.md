@@ -21,27 +21,37 @@ All applications were installed via SSH from the workstation, adhering to the he
 ```bash
 sudo apt update
 ```
+<img width="812" height="408" alt="Screenshot 2025-12-14 084357" src="https://github.com/user-attachments/assets/1c33eccf-d4c7-4882-92a1-c5ca83f45b3d" />
 
 ```bash
 sudo apt upgrade -y
 ````
+<img width="1889" height="729" alt="Screenshot 2025-12-14 084436" src="https://github.com/user-attachments/assets/ebb547de-81e2-4126-9cdc-a1c8e99efe35" />
 
 ### Step 2: Tool InstallationBash# Install stress testing suite and compiler tools
 ```bash
 sudo apt install -y stress-ng iperf3 build-essential git
 ```
-<img width="1848" height="670" alt="image" src="https://github.com/user-attachments/assets/42df92b5-9672-45d5-9487-34f7b4ae817d" />
+<img width="1109" height="673" alt="Screenshot 2025-12-14 084530" src="https://github.com/user-attachments/assets/f6e0c757-5499-4556-af86-6f7a9816b3f7" />
 
-Evidence of Installation
+
+## Evidence of Installation
 Verification that `stress-ng`, `iperf3`, and `gcc` are successfully installed on the target server via SSH.
 ```bash
 stress-ng --version
 ````
+<img width="746" height="39" alt="Screenshot 2025-12-14 084613" src="https://github.com/user-attachments/assets/f91c23b0-4c3a-460f-b40c-6940932ed98d" />
 
 ```bash
 iperf3 --version
 ```
-<img width="1902" height="158" alt="image" src="https://github.com/user-attachments/assets/e10df2b0-4686-4890-bfe1-d5a6565ceacb" />
+<img width="1890" height="84" alt="Screenshot 2025-12-14 084637" src="https://github.com/user-attachments/assets/ba75fe2f-0646-4da6-86d3-1177c995a87e" />
+
+```bash
+gcc --version
+```
+<img width="701" height="122" alt="Screenshot 2025-12-14 084743" src="https://github.com/user-attachments/assets/1c465652-2fa7-4769-8eb0-c3d47ea0c8f2" />
+
 
 ## 4. Expected Resource Profiles
 Based on the selected applications, I anticipate the following resource usage behaviors during the testing phase:
