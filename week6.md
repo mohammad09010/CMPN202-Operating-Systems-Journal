@@ -69,7 +69,6 @@ cat /proc/sys/vm/swappiness
 
 ```bash
 sudo sysctl -w net.core.rmem_max=16777216
-iperf3 -c 192.168.56.101 -t 30
 ```
 <img width="633" height="40" alt="image" src="https://github.com/user-attachments/assets/7d58a857-d819-4593-9089-39b997c1f0d6" />
 
