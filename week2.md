@@ -8,9 +8,9 @@ In order to secure the system in the best possible way, I came up with three dif
 
 | Threat ID | Threat Description | Potential Impact | Mitigation Strategy |
 | :--- | :--- | :--- | :--- |
-| **T1** | **SSH Brute Force Attacks** | Attackers attempt to guess passwords to gain shell access. Since SSH is the only entry point, this is the highest risk. | **Primary:** Disable password authentication (Keys only). <br> **Secondary:** Configure `Fail2Ban` to block IPs with repeated failed login attempts. |
-| **T2** | **Privilege Escalation** | An attacker with low-level access attempts to acquire root permissions to compromise the entire OS. | **Primary:** Create a non-root administrative user with restricted `sudo` access. <br> **Secondary:** Enforce AppArmor profiles to restrict service capabilities. |
-| **T3** | **Unpatched Vulnerabilities** | Exploitation of known security flaws in outdated software packages, e.g., old OpenSSL versions. | **Primary:** Configure `unattended-upgrades` for automatic security patching. <br> **Secondary:** Perform regular vulnerability scanning with **Lynis**. |
+| **T1** | **SSH Brute Force Attacks** | By​‍​‌‍​‍‌ far, the most significant risk is a password guessing attack trying to obtain shell access. These are usually brute force plays on the user accounts of the SSH service which is the only entry point to the machine. | **Primary:** Disable password authentication (Keys only). <br> **Secondary:** Configure `Fail2Ban` to block IPs with repeated failed login attempts. |
+| **T2** | **Privilege Escalation** | The attacke are likely to try to get admin rights on you if they find a way to get some kind of limited access to the machine.. | **Primary:** Create a non-root administrative user with restricted `sudo` access. <br> **Secondary:** Enforce AppArmor profiles to restrict service capabilities. |
+| **T3** | **Unpatched Vulnerabilities** | With the intention to take advantage of the security vulnerabilities that are present in old software packages, e.g., deprecated OpenSSL versions, someone might go down that ​‍​‌‍​‍‌route. | **Primary:** Configure `unattended-upgrades` for automatic security patching. <br> **Secondary:** Perform regular vulnerability scanning with **Lynis**. |
 
 ## 3. Security Configuration Checklist
 This checklist defines the "Security Baseline" for the server. These controls cover SSH hardening, firewalling, access control, and maintenance.
